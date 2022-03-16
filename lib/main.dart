@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final _panelHeightOpen = MediaQuery.of(context).size.height * .80;
-    final _panelHeightClosed = MediaQuery.of(context).size.height * .10;
+    final _panelHeightClosed = MediaQuery.of(context).size.height * .08;
     return Scaffold(
       body: SlidingUpPanel(
         maxHeight: _panelHeightOpen,
@@ -45,8 +45,44 @@ class _MyHomePageState extends State<MyHomePage> {
           topRight: Radius.circular(40.0),
         ),
 
-        panel: const Center(
-          child: Text("Test"),
+        panel: Center(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(
+                      top: 50,
+                      left: 50,
+                    ),
+                    child: const Icon(
+                      Icons.search,
+                      size: 40,
+                      color: Colors.black26,
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                        top: 50,
+                        right: 50
+                      ),
+                      width: 275,
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter Word Here',
+                        ),
+                        style: TextStyle(
+                            fontSize: 18,
+                        ),
+                      )
+                    )
+                  )
+                ],
+              )
+            ],
+          )
         ),
 
         collapsed: const Icon(
